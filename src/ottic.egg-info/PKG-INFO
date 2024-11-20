@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: ottic
+Version: 0.0.1
+Summary: SDK for Ottic API
+Author-email: Dmitry Sergeev <dmitry@ottic.ai>
+Project-URL: Homepage, https://ottic.ai
+Project-URL: Issues, https://github.com/ottic-ai/ottic-py
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# OTTIC SDK
+
+This is a Python SDK for Ottic API.
+More information about Ottic API can be found [https://docs.ottic.ai](https://docs.ottic.ai).
