@@ -43,25 +43,25 @@ from ottic import OtticAI
 
 ottic = OtticAI(api_key=OTTIC_API_KEY)
 
-response = await ottic.chat.completion.create({
-  promptId: 'YOUR_PROMPT_ID', # Replace with your published prompt ID
-  variables: {
-    variable: "dataset variable",
-    variable1: "dataset variable1",
-    variable2: "dataset variable2",
+response = await ottic.chat.completions.create({
+  "promptId": 'YOUR_PROMPT_ID', # Replace with your published prompt ID
+  "variables": {
+    "variable": "dataset variable",
+    "variable1": "dataset variable1",
+    "variable2": "dataset variable2",
   },
-  messages: [
+  "messages": [
     {
-      role: 'user',
-      content: "I want to buy a new insurance. I need help!",
+      "role": 'user',
+      "content": "I want to buy a new insurance. I need help!",
     },
   ],
-  metadata: {
+  "metadata": {
     "userId": "METADATA_USER_ID",
     "userEmail": "USER@EMAIL.COM",
   },
-  chainId: "CHAIN_ID",
-  tags: ["TAG1", "TAG2"],
+  "chainId": "CHAIN_ID",
+  "tags": ["TAG1", "TAG2"],
 })
 ```
 
@@ -87,11 +87,11 @@ from ottic import OtticAI
 
 ottic = OtticAI(api_key=OTTIC_API_KEY)
 livePrompt = await ottic.prompts.render({
-  promptId: 'YOUR_PROMPT_ID',
-  variables: {
-    variable: "dataset variable",
-    variable1: "dataset variable1",
-    variable2: "dataset variable2",
+  "promptId": 'YOUR_PROMPT_ID',
+  "variables": {
+    "variable": "dataset variable",
+    "variable1": "dataset variable1",
+    "variable2": "dataset variable2",
   },
 })
 ```
@@ -109,7 +109,7 @@ To retrieve a prompt without any variable replacements, use this snippet:
 from ottic import OtticAI
 
 ottic = OtticAI(api_key=OTTIC_API_KEY)
-livePrompt = await ottic.prompts.render({ promptId: 'YOUR_PROMPT_ID' })
+livePrompt = await ottic.prompts.render({ "promptId": 'YOUR_PROMPT_ID' })
 ```
 
 This will return the original prompt without modifications.
