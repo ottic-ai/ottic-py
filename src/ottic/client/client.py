@@ -42,7 +42,26 @@ class Client:
             response.raise_for_status()  # Raise an exception for bad responses
             return response.json()
         except requests.RequestException as error:
-            raise RuntimeError(f"Error rendering prompt: {str(error)}")
+            raise RuntimeError(f"Error post request: {str(error)}")
+        
+    def post_direct(self, url: str, data: dict = None):
+        """
+        Perform a POST request to the specified URL.
+        
+        :param url: Endpoint URL path
+        :param data: Optional request payload
+        :return: Response data
+        """
+        try:
+            full_url = f"{url}"
+            response = self._session.post(
+                full_url, 
+                json=data, 
+            )
+            response.raise_for_status()  # Raise an exception for bad responses
+            return response.json()
+        except requests.RequestException as error:
+            raise RuntimeError(f"Error post request")        
 
     def get(self, url: str):
         """
