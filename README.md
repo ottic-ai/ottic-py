@@ -43,7 +43,7 @@ from ottic import OtticAI
 
 ottic = OtticAI(api_key=OTTIC_API_KEY)
 
-response = await ottic.chat.complete.create({
+response = await ottic.chat.completion.create({
   promptId: 'YOUR_PROMPT_ID', # Replace with your published prompt ID
   variables: {
     variable: "dataset variable",
