@@ -52,6 +52,7 @@ class Client:
         :param data: Optional request payload
         :return: Response data
         """
+        print(url)
         try:
             full_url = f"{url}"
             response = self._session.post(

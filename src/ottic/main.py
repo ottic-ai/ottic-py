@@ -5,7 +5,6 @@ from .client.client import Client
 from .constants import OTTIC_URL
 from .modules.chat import Chat
 from .modules.prompt import Prompt
-from .modules.data import Data
 class OtticAI:
     def __init__(self, api_key: Optional[str] = None, endpoint: str = OTTIC_URL):
         """
@@ -26,5 +25,4 @@ class OtticAI:
         
         self._client = Client(api_key, endpoint)
         self.prompts = Prompt(self._client)
-        self.data = Data(self._client)
-        self.chat = Chat(self._client, self.data)
+        self.chat = Chat(self._client)

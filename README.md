@@ -43,26 +43,26 @@ from ottic import OtticAI
 
 ottic = OtticAI(api_key=OTTIC_API_KEY)
 
-response = await ottic.chat.completions.create({
-  "promptId": 'YOUR_PROMPT_ID', # Replace with your published prompt ID
-  "variables": {
+response = ottic.chat.completions.create(
+  prompt_id='PROMPT_ID', # Replace with your published prompt ID
+  variables={
     "variable": "dataset variable",
     "variable1": "dataset variable1",
     "variable2": "dataset variable2",
   },
-  "messages": [
+  messages=[
     {
       "role": 'user',
       "content": "I want to buy a new insurance. I need help!",
     },
   ],
-  "metadata": {
+  metadata={
     "userId": "METADATA_USER_ID",
     "userEmail": "USER@EMAIL.COM",
   },
-  "chainId": "CHAIN_ID",
-  "tags": ["TAG1", "TAG2"],
-})
+  chain_id="CHAIN_ID",
+  tags=["TAG1", "TAG2"],
+)
 ```
 
 - **promptId** (string, required): The ID of the published prompt you want to use.
@@ -86,14 +86,14 @@ To fetch a prompt with placeholders replaced by specified variable values, use t
 from ottic import OtticAI
 
 ottic = OtticAI(api_key=OTTIC_API_KEY)
-livePrompt = await ottic.prompts.render({
-  "promptId": 'YOUR_PROMPT_ID',
-  "variables": {
+livePrompt = ottic.prompts.render(
+  prompt_id="PROMPT_ID", # Replace with your published prompt ID.
+  variables={
     "variable": "dataset variable",
     "variable1": "dataset variable1",
     "variable2": "dataset variable2",
   },
-})
+)
 ```
 
 - **promptId** (string, required): The ID of the published prompt you want to use.
@@ -109,7 +109,7 @@ To retrieve a prompt without any variable replacements, use this snippet:
 from ottic import OtticAI
 
 ottic = OtticAI(api_key=OTTIC_API_KEY)
-livePrompt = await ottic.prompts.render({ "promptId": 'YOUR_PROMPT_ID' })
+livePrompt = ottic.prompts.render(prompt_id='YOUR_PROMPT_ID')
 ```
 
 This will return the original prompt without modifications.
